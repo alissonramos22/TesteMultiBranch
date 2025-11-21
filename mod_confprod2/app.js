@@ -17,6 +17,7 @@ class customAPP {
 	}
 
 	async appDataInit() {
+		//resetar o appdata
 		this.appData.ordens = [];
 	}
 
@@ -56,7 +57,7 @@ class customAPP {
 			},
 			{
 				name: "BarCode",
-				title: `BarCode`,
+				title: `Barcode`,
 				selecMode: `{value}`,
 				editMode: `{value}`,
 				inputFilter: `<div class="control has-icons-right"><INPUT TYPE="text" name="filter_{dados_name}_{column}" value="{filter}"/><span class="icon is-small-scale07 is-right"><i class="fa fa-filter"></i></span></div>`,
