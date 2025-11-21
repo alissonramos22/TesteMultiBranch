@@ -58,7 +58,8 @@
 	}
 
 	minhaNovaFuncaoQueVaiFicar(){
-		return 'aaaa'
+		return 'cccc'
+		// antigo -> return 'abbbbbbaaa'
 	}
 
 	minhaNovaFuncaoQueVaiFicar_MESMO(){
