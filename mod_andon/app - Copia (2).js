@@ -18,7 +18,7 @@
 					["Conferencia","Conferência Terceiro SBC"],
 					["Revisao","Revisão Terceiro SBC"],
 					//["Pedido de Venda","Pedido De Venda Terceiro SBC"],
-					["Vendas","Aprovação Terceiro SBC"],
+					["Aprovação/Vendas","Aprovação Terceiro SBC"],
 					//["Liberado","Liberado Terceiro SBC"],
 					//["Produção/PCP","Produção Terceiro SBC"],
 					["Produzido","Produzido Terceiro SBC"]
@@ -47,7 +47,7 @@
 			,maxPage:0
 			,curPage:0
 			,curTime:0
-			,cardsPage:11
+			,cardsPage:10
 			,dataInterval:null
 			,pageInterval:null
 			,pageIntervalTime:9
