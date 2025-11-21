@@ -56,6 +56,11 @@
 			,play:1
 		}
 	}
+
+	minhanovaFuncion(){
+		return 'teste'
+	}
+
 	appData_clear() {
 		// We clear all appData we stored previously
 		this.appData = {
