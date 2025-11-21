@@ -57,8 +57,9 @@
 		}
 	}
 
-	minhanovaFuncion(){
-		return 'teste'
+	minhaNovaFuncaoQueVaiFicar(){
+		return 'cccc'
+		// antigo -> return 'abbbbbbaaa'
 	}
 
 	appData_clear() {
