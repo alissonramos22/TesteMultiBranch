@@ -58,7 +58,7 @@
 	}
 
 	minhaNovaFuncaoQueVaiFicar(){
-		return 'bbbb'
+		return 'cccc'
 	}
 
 	appData_clear() {
