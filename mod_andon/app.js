@@ -56,6 +56,12 @@
 			,play:1
 		}
 	}
+
+	minhaNovaFuncaoQueVaiFicar(){
+		return 'cccc'
+		// antigo -> return 'abbbbbbaaa'
+	}
+
 	appData_clear() {
 		// We clear all appData we stored previously
 		this.appData = {

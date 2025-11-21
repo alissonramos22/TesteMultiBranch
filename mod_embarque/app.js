@@ -22,25 +22,21 @@
 				+ui.columns([
 						{content: ui.button('bRecarregar',"",{licon:"retweet", type:"is-flex"}),size:"2/4"},
 						{content: ui.button('bLiberar',"",{licon:"truck", type:"is-flex"}),size:"2/4"},
-						{content: ui.checkbox( "Somente Pendentes", "chbPendentes", true, {id:"chbPendentes"} ),size:"1/4" }
+						{content: ui.checkbox( "Somente pendentes", "chbPendentes", true, {id:"chbPendentes"} ),size:"1/4" }
  					])
 				+ui.dgrid("dgPedidos");	
-			
 			// Now we create the "Tab" container and set for each tab the layout defined in the previous lines
 			var html = ui.tabs( "MApp", 
 								[	
 									{icon:ui.fa("cube"), title:_t("Pedidos"), active:true, content:tabDetalhes, id:"tabDetalhes", autofocus: true} ,
 									{icon:ui.fa("box"), title:_t("Grapas"), active:true, content:tabGrapas, id:"tabGrapas",  autofocus: true }
 								]
-						);
-						
+						);				
 			// Finally we render the app into the app container
-			document.getElementById("app-container").innerHTML = html;
-
+			document.getElementById("app-container").innerHTML = html
 			// Start by initializing all tabs controls
 			ux.tabs('MApp', 'init');
-			
-			 //-- TEMPORARIO
+
 			ux.listen('changing', 'MApp',  function(e) {
 											
 											switch(e.detail.targetTab) {
