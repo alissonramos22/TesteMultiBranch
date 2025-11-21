@@ -61,6 +61,10 @@
 		return 'aaaa'
 	}
 
+	minhaNovaFuncaoQueVaiFicar_MESMO(){
+		return 'ccccc'
+	}
+
 	appData_clear() {
 		// We clear all appData we stored previously
 		this.appData = {
