@@ -1,0 +1,3 @@
+[submodule "mod_pcpcarteira"]
+	path = mod_pcpcarteira
+	url = https://github.com/alissonramos22/mod_pcpcarteira.git
