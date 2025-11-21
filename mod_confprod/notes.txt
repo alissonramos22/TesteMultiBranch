@@ -1,0 +1,67 @@
+
+[X] Trazer as informações do apontamento (BEAS_ARBZEIT)
+{JOIN com a BEAS_ABRZEIT está feito, só preciso saber quais campos adicionar}
+
+[X] Carregar tambem as Etiquetas geradas para essa produção
+        ** pegar query das etiquetas no APP de mod_poolreport  (SPS_PRODETIQUETAS)
+
+
+[X] Colocar um campo de Volumes x Quantidade para cada etiqueta/quantidade existente
+        ** pegar query que monta o texto de etiquetas no app mod_confemb2
+
+
+[X] Colocar um botão que abre a lista das etiquetas para leitura visual do Colaborador 
+        ** usar conforme o viewEtiquetas do mod_confemb2
+
+
+[X] Possibilitar informar uma ou mais grapas no campo de grapas
+
+[X] Possibilitar do colaborador informar a quantidade recebida, e se divergente (RECUSA) voltar o apontamento para pendente!.
+
+[X] Ao confirmar, liberar a ordem (como ja esta feito hoje)
+
+
+
+
+SELECT
+        TO_VARCHAR(T0."DocDate",'dd/MM/yyyy') "Data", 
+        T1."KNDNAME" as "Cliente", 
+        T0."BELNR_ID"||'/'||T0."BELPOS_ID" as "Lote", 
+        IFNULL(T4."U_Perfil",SUBSTR_BEFORE(T2."ItemCode" ,'.')) as "Ferramenta", 
+        IFNULL(T4."U_Perfil"||'.'||T4."U_Comprimento",T2."ItemCode" ) as "Item", 
+        IFNULL(T4."U_Acabamento",T2."UDF10") as "Acabamento", 
+        (T0."MENGE_GUT_RM") as "Quantidade",
+        T0."RM_ME" as "UM", 
+        (SELECT STRING_AGG("ETIQ",'<br>' ) FROM (SELECT COUNT(*)||' x '||TO_INT("Quantity") "ETIQ" FROM SPS_PRODETIQUETAS B0 WHERE B0.BELNR_ID = T0.BELNR_ID and B0.BELPOS_ID = T0.BELPOS_ID and  B0."Status" <> 'Cancelada' GROUP BY "Quantity") T0) "Etiquetas",
+        T0.BUCHNR_ID, 
+        IFNULL(T0.UDF6,'') as 'Quant. conferida', 
+        IFNULL(T0.UDF7,'') as 'Grapa', 
+        IFNULL(T0.UDF8,'') as 'Conferido por'
+FROM 
+        BEAS_ARBZEIT T0 
+INNER JOIN 
+        BEAS_FTHAUPT T1 
+ON 
+        T1."BELNR_ID"=T0."BELNR_ID" 
+INNER JOIN 
+        BEAS_FTPOS T2  
+ON 
+        T2."BELNR_ID"=T0."BELNR_ID" AND 
+        T2."BELPOS_ID"=T0."BELPOS_ID" 
+INNER JOIN 
+        BEAS_FTAPL T3 
+ON 
+        T3."BELNR_ID"=T0."BELNR_ID" AND 
+        T3."BELPOS_ID"=T0."BELPOS_ID" AND 
+        T3."POS_ID"=T0."POS_ID" 
+LEFT JOIN 
+        "@SPS_RMIND_PERFIL" T4 
+ON 
+        TO_VARCHAR(T4."DocEntry") = T1."UDF1" AND 
+        TO_VARCHAR(T4."LineId") = TO_VARCHAR(T2."UDF1") 
+WHERE 
+        T0.Udf16 IS NOT NULL
+ORDER BY 
+        2, 
+        1, 
+        T0.BUCHNR_ID

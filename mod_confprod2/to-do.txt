@@ -1,0 +1,5 @@
+[X] Não salvar o data conferido no inicio (Tirar coluna do Grid)
+[X] ao clicar 2x assume quantidade e nome do Conferente
+[X] selecionar as linhas e clicar para salvar
+[X] aprovar as linhas já conferidas -> apos salvar (como é no RECEBIMENTO V2)
+[X] Fazer com que os Filtros Busquem diretamente no banco (Como é no MOD_POOLREPORT2)

@@ -1,0 +1,325 @@
+* {
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    overflow-y: hidden !important;
+}
+
+#app-container {
+    padding: 0.5rem !important;
+    max-height: 100vh;
+}
+
+.box {
+    margin: 0 !important;
+    padding: 0.5rem !important;
+    box-sizing: border-box;
+}
+
+.icon.is-small-scale07 {
+    height: 15px !important;
+    width: 20px !important;
+    transform: scale(0.7);
+}
+
+.table.is-sps-table-v1 tbody td {
+    height: 100%;
+    padding: 0;
+}
+
+.table.is-sps-table-v1 tbody td input:not([type="checkbox"]) {
+    height: 2.5rem !important;
+    font-size: 1.0rem !important;
+}
+
+.table.is-sps-table-v1 tbody td:has(input) {
+    padding: 0 !important;
+}
+
+.table.is-sps-table-v1 tbody td {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+#main {
+    position: absolute;
+    top: 4rem;
+    /* max-height: 85vh; */
+    /* max-height: 90%; */
+    max-width: 100%;
+    display: block;
+    overflow: auto;
+    bottom: 1rem;
+}
+
+
+
+#etiquetasView {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    background-color: white;
+}
+
+#etiquetas{
+    max-height: 81vh;
+    position: relative; /* Ensure compatibility with sticky positioning */
+    overflow: visible; /* Adjust overflow to support sticky elements */
+}
+
+#etiquetasView > div:empty {
+    display: none;
+}
+
+.is-row-selected {
+    background-color: #8cb4f5 !important;
+}
+
+/* #rejeitos {
+    overflow: auto;
+    max-height: 82vh;
+    display: block;
+    position: sticky;
+    z-index: 8;
+    top: 0; 
+} */
+
+#rejeitos {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 8;
+    max-height: 82vh;
+    overflow: auto;
+    display: block;
+    background-color: white; /* Optional: Add background color for better visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better aesthetics */
+    padding: 1rem; /* Optional: Add padding for content spacing */
+}
+
+
+/*botão*/
+.is-sps-button{
+    height: 5rem !important;
+    width: 100% !important;
+    font-size: large !important;
+    border: 1px solid black !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.is-sps-button-medium{
+    height: 100% !important;
+    width: 100% !important;
+    font-size: large !important;
+    border: 1px solid black !important;
+}
+
+.is-sps-button-rejConfirm{
+    height: 2rem !important;
+    width: 100% !important;
+    font-size: medium !important;
+    border: 1px solid black !important;
+    background-color: darkgreen !important;
+    color: white !important;
+}
+
+.is-row-important{
+    font-weight: bold;
+    background-color: lightgrey;
+    font-size: 2rem;
+}
+
+.is-etiqueta{
+    background-color: white !important;
+    color: black !important;
+}
+
+.is-concluir{
+    background-color: darkgreen !important;
+    color: white !important;
+}
+
+.is-interromper{
+    background-color: darkred !important;
+    color: white !important;
+}
+
+/* Hide the up and down arrows for input type number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+input[id^="rejeitoQtd_"]:focus {
+    background-color: orange !important;
+}
+
+input[id^="etiquetaQtd_"]:focus {
+    background-color: orange !important;
+}
+
+.is-field-selected {
+    background-color: #8cb4f5 !important;
+}
+
+.is-row-error{
+    background-color: rgb(255, 154, 154) ;
+}
+
+.is-row-partial{
+    background-color: rgb(255, 247, 130) ;
+}
+
+.is-row-complete{
+    background-color: rgb(155, 255, 130) ;
+}
+
+.is-row-reforma{
+    background-color: rgb(204, 0, 255, 0.3) ;
+}
+
+.is-row-reposicao{
+    background-color: rgba(255, 136, 0, 0.3) ;
+}
+
+
+#bUm{
+    background-color: darkblue;
+    color: white;
+}
+
+#bAgrupado{
+    background-color: darkred;
+    color: white;
+}
+
+input[name="numEtiq"] {
+    border-radius: 4px;
+    outline: none;
+    text-align: center !important; 
+    font-size: 1.5rem;
+    background-color: #ffffe0;
+}
+
+input[name="numEtiq"]:focus {
+    border-color: #45a049;
+    background-color: orange !important;
+}
+
+.is-clickable {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.is-cell-img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.is-cell-img img{
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+}
+
+.is-cell-important-medium {
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+.is-cell-important {
+    background-color: lightgrey;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.is-hide{
+    display: none;
+}
+
+/* CHANGES 26/05/2025*/
+.table.is-sps-table-v1 td input[type="checkbox"] {
+    height: 1rem !important;
+}
+
+.table.is-sps-table-v1{
+    font-size: 1.1rem !important;
+}
+
+.table.is-sps-table-v1 tr.is-sps-table-v1-inputline {
+    top: 44px !important
+    
+}
+
+
+/*Toogle Impressao*/
+.toggle {
+   display: flex;
+}
+
+.toggle > span {
+    padding-left: 10px;
+}
+
+.toggle > input {
+    display: none;
+}
+
+.toggle > label {
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 44px;
+    background: #898989;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.toggle > label:after {
+    position: absolute;
+    left: -2px;
+    top: -3px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 100px;
+    background: #ffffff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.55);
+    content: '';
+    transition: all 0.3s ease;
+}
+.toggle > label:active:after {
+    transform: scale(1.15, 0.85);
+}
+.toggle > input:checked ~ label {
+    background: #6fbeb5;
+}
+.toggle > input:checked ~ label:after {
+    left: 20px;
+    background: #179588;
+}
+.toggle > input:disabled ~ label {
+    background: #d5d5d5;
+    pointer-events: none;
+}
+.toggle > input:disabled ~ label:after {
+    background: #bcbdbc;
+}
+
+/*revisa o menu*/
+.saveAll {
+    z-index: 25;
+    background-color: #c9d8e7;
+}

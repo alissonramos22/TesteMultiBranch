@@ -1,0 +1,53 @@
+﻿[programid]terminal20[/programid][window]mod_confprod2[/window][beas_webwindow##1]0000000068000001sprogramid	swindowname	sdesciption	smenuetext	sdescription_en	smenutext_en	sbitmapsmall	sbitmapbig	sbitmapbig2	smenueid	sbasemenuid	smodule	sappid	iversionid	ibeasversion	sgroupid	isortid	ilevelid	icolorid	istatusid	sright_id	ssourcecode	sajaxcode	supdatecode	ssqltable	sdocumentationurl	spc_script	ipc_activ	sbenzingkey	sbenzingrecordtype	sbenzingscript	sbenzingtranslate	sbenzingprogram	svisiblescript	smenutextscript	iweb_activ	sreportstd	sreporthlp	ireportactiv	screatefrom	screatecompany	ssetuptext1	ssetuptext2	ssetuptext3	ssetuptext4	ssetuptext5	ssetuptext6	ssetuptext7	ssetuptext8	ssetuptyp1	ssetuptyp2	ssetuptyp3	ssetuptyp4	ssetuptyp5	ssetuptyp6	ssetuptyp7	ssetuptyp8	ssetupscript	ssetupupdatescript	stranslate	ido_not_update	sdbini	ssourcefilename	idefaultapp	derftstamp	serfuser	dandtstamp	sanduser	01terminal20	02mod_confprod2	03Conferência de Produção v2	04Conferência de Produção v2	05Conferência de Produção v2	06Conferência de Produção v2	07	08app_t20_goodsreceiptpo.png	09app_t20_goodsreceiptpo.png	10mod_confprod2	11	13mod_confprod2	141	150	16	170	180	190	200	21	22if <get> = 'getAux' then
+<tAb>shtml.web.responseType=json
+<tAb>getAux()
+<tAb>return success<tAb>
+end if
+
+if <get> = 'postAux' then
+<tAb>shtml.web.responseType=json
+<tAb>postAux()
+<tAb>return success<tAb>
+end if
+
+if <get> = 'project' then
+<tAb>shtml.web.responseType=json
+<tAb>project()
+<tAb>return success
+end if
+
+function getAux
+<tAb>setvar=ls_sql= sp_sps_beas_modconfprod2_getaux('<acao>','<dados>')
+<tAb>shtml.web.dgrid=sql,<dg_page>,<dg_limit>,call <ls_sql>
+end function
+
+function postAux
+<tAb>sqlexecute=call sp_sps_beas_modconfprod2_getaux('<acao>','<dados>')
+<tAb>shtml.web.dgrid=sql,<dg_page>,<dg_limit>,select '<wert1>' from dummy
+end function
+
+function project 
+<tAb>sql=select '<system.project>' from beas_dummy
+<tAb>shtml.web.dgrid=sql,<dg_page>,<dg_limit>,select '<wert1>' from dummy
+end function
+
+// App  mod_grapas
+_header()
+gui()
+_footer()
+return success
+
+
+function gui
+[html]
+<script src="assets21/js/gs1_128.js"></script>
+<script src="assets21/js/class_serials.js"></script><tAb><tAb><tAb>
+<script src="assets21/js/class_batches.js"></script>
+<script src="assets21/js/class_attachments.js"></script>
+<script src="assets21/js/class_extendedSearch.js"></script>
+<script src="/@system.project@/apps/sps/sps.js"></script>
+<script src="/@system.project@/apps/mod_confprod2/i18n/@currentlanguage@.js"></script>
+<script src="/@system.project@/apps/mod_confprod2/app.js"></script>
+[/html]
+end function
+	23	24	25	26	27	280	31	34	35	361	37	38	390	40manager, 2022/08/11	41beas GmbH	42	43	44	45	58	59	60	610	62	63\\olgasap\B1_SHF\Beas_Project_HMG\project\standard\ProgramGroups\terminal20\mod_confprod2.src	640	652022/08/11 14:07:04	66manager	672025/09/30 14:19:05	68manager	NL	[/beas_webwindow##1][beas_webobjects##2]0000000013000000[/beas_webobjects##2]
